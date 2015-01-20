@@ -49,7 +49,7 @@
 \end{Verbatim}
 }
 
-\title{Versionshantering med git}
+\title{Versionshantering och git}
 \author{Kai-Mikael Jää-Aro}
 \date{}
 
@@ -63,16 +63,111 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{Versionshantering for Unity}
+  \frametitle{Versionskontroll}
+Mjukvaruutveckling är inte en linjär process från en tom fil till \(n\) rader korrekt fungerande kod.
 \begin{itemize}
-\item Enligt tidigare: Versionshantering viktigt
-\item Unity Asset Server kräver Unity Pro
-\item Asset Server hanterar inte \emph{branching} och \emph{rollback}
-\item Alltså: hitta ett annat system
-\item git populärt och modernt med önskade funktioner
-\item git har en viss inlärningströskel\dots
+\item Fel införs under arbetets gång.
+\item Vi provar alternativa lösningar.
+\item Flera parallella versioner krävs.
 \end{itemize}
+
+Därför måste vi:
+\begin{itemize}
+\item kunna återgå till en fungerande version av mjukvaran,
+\item arbeta med en av flera möjliga versioner.
+\end{itemize}
+
+En lösning på detta problem är \emph{versionskontroll}.
 \end{frame}
+
+\begin{frame}
+  \begin{itemize}
+  \item Ett arkiv
+  \item\emph{Incheckning} av kod (\emph{revisioner}) i arkivet.
+\note[item]{Incheckningen ska också ha kommentar om vad som ändrats sen sist.}
+  \item  Trädstruktur för parallella versioner 
+  \item Hämta ut tidigare incheckningar
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+\includegraphics[height=0.8\textheight]{revision-tree}
+\end{frame}
+
+\begin{frame}
+``tip''/``trunk''/``master'' är huvudspåret.
+
+Varje revision har en identitet, kan markeras med en \emph{tag} som 
+motsvarar släppt version eller annan milsten.
+
+Ändringar i parallella versioner kan föras tillbaka till master.
+\end{frame}
+
+\begin{frame}
+\frametitle{Parallell utveckling}
+
+Flera utvecklare i samma projekt.
+\begin{enumerate}
+\item Checka ut aktuell version av koden.
+\item Koda, testa.
+\item Checka in \emph{stabil} kod.
+\item Hantera ev konflikter.
+\item Repetera tills projektet klart.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Konflikthantering}
+Antag att två kodare checkar in varsin version av metoden \lstinline+func1+:
+\begin{tabular}{ll}
+Kodare 1&Kodare 2\\
+\begin{minipage}[t]{0.45\linewidth}
+\begin{lstlisting}[basicstyle=\tiny]
+public int func1(int par) {
+  int var1 = 0;  // Ursprunglig rad
+  var1 = par;   // Ny rad
+  return(var1);
+}
+\end{lstlisting}
+\end{minipage}
+&
+\begin{minipage}[t]{0.45\linewidth}
+\begin{lstlisting}[basicstyle=\tiny]
+public int func1(int par) {
+  return(par);
+}
+\end{lstlisting}
+\end{minipage}
+\end{tabular}
+\end{frame}
+
+\begin{frame}[fragile]
+Raden \lstinline+var1 = par;+ läggs till.
+\lstinline+int var1 = 0;+ tas
+bort.  
+
+\lstinline+return+-satsen skiljer sig mellan de två incheckningarna, en \emph{konflikt}.  Denna måste lösas manuellt.
+
+\end{frame}
+
+\begin{frame}[fragile]
+Versionshanteringssystemet förstår bara koden som en sträng text.
+Överlappande ändringar i samma kod flaggas, men om någon skulle ändra
+funktionshuvudet till \lstinline+public void func1(int par1, int
+par2)+ invalideras alla anrop till \lstinline+func1+, men
+versionshanteringssystemet ser inte detta.
+
+Därför bör alla incheckningar följas av ett \emph{bygge}.
+\end{frame}
+
+\begin{frame}
+\frametitle{Git}
+Det finns ett stort antal versionshanteringssystem, här kommer vi att gå igenom git-hub.
+
+Open source-projekt får använda git-hub gratis och ställer upp med server-utrymme.
+
+\end{frame}
+
 
 \begin{frame}
 \frametitle{Att installera en git-klient}
@@ -91,30 +186,6 @@ För att autentisera oss mot git-servern skapar vi ett \href{http://www.openssh.
 På Windows behöver man starta \textbf{Git Bash}, som ger en bash-miljö, på OS X räcker det med att starta \textbf{Terminal}.
 \end{frame}
 
-\begin{frame}[fragile]
-\frametitle{Att skapa ssh-nycklar}
-Ge sen följande kommando, använd förslagsvis er SH-användare (\url{shkljo14} i detta fall):
-\begin{dialogue}
-prompt> #textbf(ssh-keygen -t rsa -C "shkljo14")
-Generating public/private rsa key pair.
-Enter file in which to save the key #char"28/Users/shkljo14/.ssh/id_rsa#char"29: #return
-Enter passphrase #char"28empty for no passphrase#char"29: #return
-Enter same passphrase again: #return
-Your identification has been saved in /Users/shkljo14/.ssh/id_rsa.
-Your public key has been saved in /Users/shkljo14/.ssh/id_rsa.pub.
-The key fingerprint is:
-c2:fc:d4:27:fd:9c:45:fe:f2:e2:a7:02:98:7b:b4:49 shkljo14
-\end{dialogue}
-\end{frame}
-
-\begin{frame}[fragile]
-Kopiera den publika nyckeln och zippa den.
-\begin{dialogue}
-prompt> #textbf(cp /Users/shkljo14/.ssh/id_rsa.pub shkljo14.pub)
-prompt> #textbf(zip -r shkljo14.zip shkljo14.pub)
-\end{dialogue}
-Skicka sedan zip-filen till Git-administratören (\href{mailto:kaimikael.jaaaro@sh.se}{Kai-Mikael}) för att läggas till listan av git-användare.
-\end{frame}
 
 \begin{frame}[fragile]
 Tala också om för din git-klient vem du är:
