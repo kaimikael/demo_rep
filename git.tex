@@ -1,0 +1,441 @@
+\documentclass[swedish]{beamer}
+\usepackage{pgfpages}
+\usepackage{myslides}
+\usepackage{fancyvrb}
+\usepackage[lighttt]{lmodern}
+\usepackage{menukeys}
+\lstset{language=bash}
+
+\makeatletter
+\AtBeginDocument{% 
+   \@ifpackageloaded{fancyvrb}{}{\let\@xpace@fancyvrb@catcodes\relax}% 
+
+} 
+
+\def\@xpace@fancyvrb@catcodes{% 
+   \ifx\relax \FV@CommandChars 
+   \else 
+     \expandafter\@xpace@fancyvrb@catcodes@aux\FV@CommandChars 
+   \fi 
+} 
+
+\def\@xpace@fancyvrb@catcodes@aux 
+   \catcode`#1=0\relax\catcode`#2=1\relax\catcode`#3=2\relax{% 
+     \@makeother#1\@makeother#2\@makeother#3% 
+} 
+
+\def\@xspace@eTeX@setup{% 
+   \begingroup 
+   \everyeof{}% 
+   \endlinechar=-1\relax 
+   \@xpace@fancyvrb@catcodes % extra line here. 
+   \catcode`\ =10\relax 
+   \makeatletter 
+   \catcode`\\\z@ 
+   \catcode`\{\@ne 
+   \catcode`\}\tw@ 
+   \expandafter\scantokens\expandafter{\expandafter\gdef 
+     \expandafter\@xspace@exceptions@tlp 
+     \expandafter{\@xspace@exceptions@tlp}}% 
+   \endgroup 
+} 
+\makeatother
+
+\newenvironment{dialogue}{%
+\VerbatimEnvironment
+\begin{Verbatim}[fontsize=\footnotesize,commandchars=\#\(\)]%
+}
+{%
+\end{Verbatim}
+}
+
+\title{Versionshantering med git}
+\author{Kai-Mikael Jää-Aro}
+\date{}
+
+
+\begin{document}
+\setlength{\intextsep}{0mm}
+%\setbeameroption{show notes on second screen=left}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Versionshantering for Unity}
+\begin{itemize}
+\item Enligt tidigare: Versionshantering viktigt
+\item Unity Asset Server kräver Unity Pro
+\item Asset Server hanterar inte \emph{branching} och \emph{rollback}
+\item Alltså: hitta ett annat system
+\item git populärt och modernt med önskade funktioner
+\item git har en viss inlärningströskel\dots
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Att installera en git-klient}
+\url{mattis.ktd} (193.11.44.151) har en git-server installerad.
+
+Klientmjukvara finns på \url{http://git-scm.com/download/} för OS X, Linux, Solaris och Windows.  Ladda ner och installera.
+
+Windows-versionen kommer med ett grafiskt gränssnitt.  \href{http://www.syntevo.com/smartgit/download}{SmartGit} finns för OS X, Linux, och Windows. Jag kommer att parallellt visa kommandoradsinstruktionerna med motsvarande SmartGit-interaktion.
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Förberedelser}
+För att autentisera oss mot git-servern skapar vi ett \href{http://www.openssh.com/}{ssh}-nyckelpar:
+
+På Windows behöver man starta \textbf{Git Bash}, som ger en bash-miljö, på OS X räcker det med att starta \textbf{Terminal}.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Att skapa ssh-nycklar}
+Ge sen följande kommando, använd förslagsvis er SH-användare (\url{shkljo14} i detta fall):
+\begin{dialogue}
+prompt> #textbf(ssh-keygen -t rsa -C "shkljo14")
+Generating public/private rsa key pair.
+Enter file in which to save the key #char"28/Users/shkljo14/.ssh/id_rsa#char"29: #return
+Enter passphrase #char"28empty for no passphrase#char"29: #return
+Enter same passphrase again: #return
+Your identification has been saved in /Users/shkljo14/.ssh/id_rsa.
+Your public key has been saved in /Users/shkljo14/.ssh/id_rsa.pub.
+The key fingerprint is:
+c2:fc:d4:27:fd:9c:45:fe:f2:e2:a7:02:98:7b:b4:49 shkljo14
+\end{dialogue}
+\end{frame}
+
+\begin{frame}[fragile]
+Kopiera den publika nyckeln och zippa den.
+\begin{dialogue}
+prompt> #textbf(cp /Users/shkljo14/.ssh/id_rsa.pub shkljo14.pub)
+prompt> #textbf(zip -r shkljo14.zip shkljo14.pub)
+\end{dialogue}
+Skicka sedan zip-filen till Git-administratören (\href{mailto:kaimikael.jaaaro@sh.se}{Kai-Mikael}) för att läggas till listan av git-användare.
+\end{frame}
+
+\begin{frame}[fragile]
+Tala också om för din git-klient vem du är:
+\begin{dialogue}
+prompt> #textbf(git config --global user.name "Kai-Mikael Jää-Aro")
+prompt> #textbf(git config --global user.email kaimikael.jaaaro@sh.se)
+\end{dialogue}
+Detta gör identiteterna tydligare i loggar \mm.
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Att använda git} git är ett \emph{distribuerat} versionskontrollsystem.  \Mao lagrar \emph{alla} utvecklare en (komprimerad) kopia av hela databasen, men normalt utser man ett specifikt arkiv till att vara ``origin'', till vilket alla kopierar sitt material och som alla hämtar ifrån.
+
+Dock är man inte beroende av det centrala arkivet utan kan arbeta offline med sin kopia tills man får kontakt med arkivet igen.
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Att skapa ett repository}  
+\begin{columns}
+\begin{column}{0.5\textwidth}
+Att skapa ett lokalt arkiv är lätt: gå till aktuell katalog och skriv:
+\begin{dialogue}
+prompt> #textbf(git init)
+\end{dialogue}
+Detta skapar en underkatalog \directory{.git}, som kommer att innehålla det faktiska arkivet.
+\end{column}
+\begin{column}{0.5\textwidth}
+\menu{Repository > Add or Create\dots}
+
+\vspace{\baselineskip}
+
+\includegraphics[width=\textwidth]{CreateRepository}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Att förbereda filer för lagring (\emph{staging})}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+Man måste säga till att filer ska lagras i arkivet. 
+\begin{dialogue}
+prompt> #textbf(git add #textsl(filnamn))
+\end{dialogue}
+
+Filen/filerna kommer nu att placeras i ett index \emph{i aktuellt skick}, men ännu inte läggas i arkivet.
+\end{column}
+\begin{column}{0.5\textwidth}
+\menu{Stage}
+
+\vspace{\baselineskip}
+
+\includegraphics[width=\textwidth]{StageFiles}
+
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Att lagra filer (\emph{commit})}  
+\begin{columns}
+\begin{column}{0.5\textwidth}
+För att faktiskt placera filerna i arkivet gör man 
+\begin{dialogue}
+prompt> #textbf(git commit)
+\end{dialogue}
+
+Om man tidigare har adderat filer till indexet, så kommer git att följa dem även i framtiden och man kan placera alla följda filer i arkivet med
+\begin{dialogue}
+prompt #textbf(git commit -a)
+\end{dialogue}
+\end{column}
+% Commit-meddelanden med biljettnummer från tracking-systemet
+\begin{column}{0.5\textwidth}
+\menu{Commit}
+
+\vspace{\baselineskip}
+
+\includegraphics[width=\textwidth]{CommitFiles}
+
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Filer som inte behöver lagras}  
+Normalt är man bara intresserad av att arkivera \emph{källkodsfiler} (till vilka vi räknar texturer, bilder, animationer \odyl), men inte temporära filer, kompilerad kod, \osv.  För att undvika dessa kan man skapa en fil \directory{.gitignore} med reguljära uttryck som anger vilka filer som \emph{inte} ska lagras.  (Det finns \href{https://github.com/github/gitignore}{färdiga \directory{.gitignore}-filer} för ett antal vanliga utvecklingssystem, som \tex Unity.)
+
+\lstinputlisting[basicstyle=\tiny]{Unity.gitignore}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Att se vad som hänt i filerna}  
+\begin{columns}
+\begin{column}{0.5\textwidth}
+Över tid ansamlar sig utvecklingshistorien i arkivet.  Man kan studera historien med 
+\begin{dialogue}
+prompt> #textbf(git log)
+\end{dialogue}
+Därför bör \emph{commit}-meddelandena vara koncisa och meningsfulla.
+
+\end{column}
+\begin{column}{0.5\textwidth}
+\menu{Log}
+
+\vspace{\baselineskip}
+
+\includegraphics[width=\textwidth]{Log}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+Man kan jämföra olika versioner av en given fil:
+\begin{dialogue}
+prompt> #textbf(git diff Repairer.cs)
+diff --git a/Assets/Scripts/Repairer.cs b/Assets/Scripts/Repairer.cs
+index 879f759..b537641 100644
+--- a/Assets/Scripts/Repairer.cs
++++ b/Assets/Scripts/Repairer.cs
+@@ -33,7 +33,7 @@ public class Repairer : NPC {
+     public override bool OnDroppedItem(Item item)
+     {
+         if (item == Item.wrench)
+-        {//om rosen som släpptes på denna NPC är en ros
++        {//om objektet som släpptes på denna NPC är en skiftnyckel^M
+             //Apperance, knowledge, reputation, confidence
+             player.changeStats#char"28()0, 0, 1, 1#char"29;
+             Say#char"28"Thanks, now I can fix this coffeemachine!"#char"29;
+\end{dialogue}
+\end{frame}
+
+\begin{frame}
+      \includegraphics[width=\textwidth]{Diff}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Att återställa en tidigare version}
+Om (när) man inser att man behöver återgå till en tidigare version kan man hämta denna med
+\begin{dialogue}
+prompt> #textbf(git checkout #textit(commitnr) #textit(filnamn))
+\end{dialogue}  
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{columns}
+\begin{column}{0.5\textwidth}
+Välj en fil i loggen, högerklicka \menu{Show Changes}.
+
+\vspace{\baselineskip}
+
+\includegraphics[width=\textwidth]{UpdatedLog}
+\end{column}
+\begin{column}{0.5\textwidth}
+\menu{Take Left}/\menu{Take Right}
+
+\vspace{\baselineskip}
+
+\includegraphics[width=\textwidth]{FileCompare}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Att hämta från ett centralt arkiv}
+\begin{columns}[t]
+\begin{column}{0.5\textwidth}
+Att ha ett centralt arkiv förutsätter tillgång till den aktuella servern (mattis, alias 193.11.44.151).  I det här fallet är Kai-Mikael administratören, be honom skapa de arkiv ni behöver.
+
+\vspace{4\baselineskip}
+
+Detta arkiv kan sedan laddas ner med 
+\begin{dialogue}
+prompt> #textbf(git clone git@193.11.44.151:#textsl(arkivnamn).git)
+\end{dialogue}
+Vi får då en kopia av hela det angivna arkivet.
+\end{column}
+\begin{column}{0.5\textwidth}
+\menu{Repository > Clone\dots}
+
+\vspace{\baselineskip}
+
+\includegraphics[width=\textwidth]{Clone}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\begin{columns}
+\begin{column}{0.5\textwidth}
+Om man redan har ett ett projekt utan versionkontroll kan man ladda ner ett tomt arkiv och sedan kopiera över dess \directory{.git}-katalog till den katalog man vill använda (eller vice versa), addera filerna i den och göra commit.  För därefter över filerna till centralarkivet med
+\begin{dialogue}
+prompt> #textbf(git push origin master)
+\end{dialogue}
+\end{column}
+\begin{column}{0.5\textwidth}
+\menu{Commit}
+
+\vspace{\baselineskip}
+
+\includegraphics[width=\textwidth]{CommitAndPush}
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Att hämta från ett  \emph{remote repository}}
+Att sedan hämta uppdaterade filer från det centrala arkivet görs med 
+\begin{dialogue}
+prompt> #textbf(git fetch)
+\end{dialogue}
+
+%Nu kan dessa filer dock ha \emph{konflikter} med filer man själv har ändrat.
+%git pull
+\end{frame}
+
+% \begin{frame}
+% \frametitle{Att döpa ett \emph{remote repository}}
+% git remote add
+% \end{frame}
+
+
+% \begin{frame}
+% \frametitle{Att lagra på ett  \emph{remote repository}}
+% git push  
+% \end{frame}
+
+% \begin{frame}
+% \frametitle{\emph{Tags} och \emph{branches}}
+% git tag  
+% git push <tagname>
+
+% git branch <branchname>
+% git checkout <branchname>
+% \end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Att ha en privat utvecklingsgren}
+Ett vanligt arbetsflöde är att man har en \emph{master branch}, där koden är garanterad att vara stabil och körbar.  Olika utvecklare kan sedan lätt skapa en egen gren att koda och testa i.  Om något blir fel kan man alltid backa i denna gren och hålla mastern stabil.  Man kan självfallet göra ytterligare grenar för olika tester.
+
+git-arkiven är uppbyggda så att de låter oss arbeta på vilken punkt i trädet vi vill.  Man kan se det som att man har en pekare in i trädet som pekar ut den aktuella uppsättningen filer som vi arbetar på.  Vid behov kan vi flytta pekaren nån annanstans och arbeta där istället.
+\end{frame}
+
+\begin{frame}[fragile]
+  \begin{columns}
+    \begin{column}{0.5\textwidth}
+      Vi skapar en branch med 
+      \begin{dialogue}
+prompt> #textbf(git branch #textit(branchnamn))
+      \end{dialogue}
+och säger att vi vill arbeta med en specific branch
+\begin{dialogue}
+prompt> #textbf(git checkout #textit(branchnamn))  
+\end{dialogue}
+Vi hamnar då i ''spetsen'' av den aktuella grenen.
+    \end{column}
+    \begin{column}{0.5\textwidth}
+\menu{Add Branch}
+
+\vspace{\baselineskip}
+
+\includegraphics[width=\textwidth]{BranchAndCheckout}
+    \end{column}
+  \end{columns}
+  
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{\emph{Merge}}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+När man har en utvecklingsversion man är nöjd med är det dags att koppla ihop den med mastern.  
+\begin{dialogue}
+prompt> #textbf(git checkout master)
+prompt> #textbf(git merge otherbranch)
+\end{dialogue}
+
+git kommer nu att försöka kombinera filerna från bägge grenarna.
+\end{column}
+\begin{column}{0.5\textwidth}
+\menu{Merge}
+
+\vspace{\baselineskip}
+
+\includegraphics[width=\textwidth]{Merge}
+
+\end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+    Det kan vara så att det finns konflikter (överlappande ändringar) i koden, så att man måste gå igenom manuellt och välja vilket av de möjliga alternativen som ska användas.  Då kan man ta hjälp av 
+\begin{dialogue}
+prompt> #textbf(git mergetool)
+\end{dialogue}
+(kan kräva installation av lämplig mjukvara).
+
+Om man inser att man gjort bort sig fullständigt, kan man ångra sig:
+\begin{dialogue}
+prompt> #textbf(git merge --abort)
+\end{dialogue}
+
+Till sist, när allt är OK, så gör man en commit.
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{\emph{merge} av binära filer}
+git klarar inte (idag) av att göra merge på binära filer -- \mao texturer, animationer, \odyl.  Somliga installationer kan ha en mergetool som kan hjälpa till, men i allmänhet måste man manuellt hämta de binära filer man vill ha med 
+\begin{dialogue}
+prompt> #textbf(git checkout #textit(treeish) #textit(filnamn))  
+\end{dialogue}
+  
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Mer läsning}  
+\href{http://git-scm.com/book/en/v2/}{\textsl{Pro Git, 2nd Edition}, Scott Chacon \& Ben Straub.}
+\begin{dialogue}
+prompt> #textbf(man git)
+\end{dialogue}
+\end{frame}
+\end{document}
