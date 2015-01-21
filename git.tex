@@ -181,203 +181,61 @@ GitHub (\url{https://github.com/}) gör tillgängligt både ett webbgränssnitt 
 
 \begin{frame}
 \frametitle{Att skapa ett arkiv}
+\includegraphics{GitHubSignUp}
+\end{frame}
+
+\begin{frame}[fragile]
+\includegraphics{ChoosePlan}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\includegraphics{CreateRepository}  
+\end{frame}
+
+\begin{frame}[fragile]
+\includegraphics{NameRepository}
+\end{frame}
+
+\begin{frame}[fragile]
+\includegraphics{GitHubDownload}
 
 \end{frame}
 
 \begin{frame}[fragile]
-\end{frame}
-
-
-\begin{frame}[fragile]
+\includegraphics{GitHubWelcome}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Att skapa ett repository}  
-\begin{columns}
-\begin{column}{0.5\textwidth}
-Att skapa ett lokalt arkiv är lätt: gå till aktuell katalog och skriv:
-\begin{dialogue}
-prompt> #textbf(git init)
-\end{dialogue}
-Detta skapar en underkatalog \directory{.git}, som kommer att innehålla det faktiska arkivet.
-\end{column}
-\begin{column}{0.5\textwidth}
-\menu{Repository > Add or Create\dots}
-
-\vspace{\baselineskip}
-
-\includegraphics[width=\textwidth]{CreateRepository}
-\end{column}
-\end{columns}
+\includegraphics{GitHubLogin}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Att förbereda filer för lagring (\emph{staging})}
-\begin{columns}
-\begin{column}{0.5\textwidth}
-Man måste säga till att filer ska lagras i arkivet. 
-\begin{dialogue}
-prompt> #textbf(git add #textsl(filnamn))
-\end{dialogue}
-
-Filen/filerna kommer nu att placeras i ett index \emph{i aktuellt skick}, men ännu inte läggas i arkivet.
-\end{column}
-\begin{column}{0.5\textwidth}
-\menu{Stage}
-
-\vspace{\baselineskip}
-
-\includegraphics[width=\textwidth]{StageFiles}
-
-\end{column}
-\end{columns}
+\includegraphics{GitHubConfig}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Att lagra filer (\emph{commit})}  
-\begin{columns}
-\begin{column}{0.5\textwidth}
-För att faktiskt placera filerna i arkivet gör man 
-\begin{dialogue}
-prompt> #textbf(git commit)
-\end{dialogue}
-
-Om man tidigare har adderat filer till indexet, så kommer git att följa dem även i framtiden och man kan placera alla följda filer i arkivet med
-\begin{dialogue}
-prompt #textbf(git commit -a)
-\end{dialogue}
-\end{column}
-% Commit-meddelanden med biljettnummer från tracking-systemet
-\begin{column}{0.5\textwidth}
-\menu{Commit}
-
-\vspace{\baselineskip}
-
-\includegraphics[width=\textwidth]{CommitFiles}
-
-\end{column}
-\end{columns}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Filer som inte behöver lagras}  
-Normalt är man bara intresserad av att arkivera \emph{källkodsfiler} (till vilka vi räknar texturer, bilder, animationer \odyl), men inte temporära filer, kompilerad kod, \osv.  För att undvika dessa kan man skapa en fil \directory{.gitignore} med reguljära uttryck som anger vilka filer som \emph{inte} ska lagras.  (Det finns \href{https://github.com/github/gitignore}{färdiga \directory{.gitignore}-filer} för ett antal vanliga utvecklingssystem, som \tex Unity.)
-
-\lstinputlisting[basicstyle=\tiny]{Unity.gitignore}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Att se vad som hänt i filerna}  
-\begin{columns}
-\begin{column}{0.5\textwidth}
-Över tid ansamlar sig utvecklingshistorien i arkivet.  Man kan studera historien med 
-\begin{dialogue}
-prompt> #textbf(git log)
-\end{dialogue}
-Därför bör \emph{commit}-meddelandena vara koncisa och meningsfulla.
-
-\end{column}
-\begin{column}{0.5\textwidth}
-\menu{Log}
-
-\vspace{\baselineskip}
-
-\includegraphics[width=\textwidth]{Log}
-\end{column}
-\end{columns}
-\end{frame}
-
-\begin{frame}[fragile]
-Man kan jämföra olika versioner av en given fil:
-\begin{dialogue}
-prompt> #textbf(git diff Repairer.cs)
-diff --git a/Assets/Scripts/Repairer.cs b/Assets/Scripts/Repairer.cs
-index 879f759..b537641 100644
---- a/Assets/Scripts/Repairer.cs
-+++ b/Assets/Scripts/Repairer.cs
-@@ -33,7 +33,7 @@ public class Repairer : NPC {
-     public override bool OnDroppedItem(Item item)
-     {
-         if (item == Item.wrench)
--        {//om rosen som släpptes på denna NPC är en ros
-+        {//om objektet som släpptes på denna NPC är en skiftnyckel^M
-             //Apperance, knowledge, reputation, confidence
-             player.changeStats#char"28()0, 0, 1, 1#char"29;
-             Say#char"28"Thanks, now I can fix this coffeemachine!"#char"29;
-\end{dialogue}
+\includegraphics{GitHubFindLocalRepositories}
 \end{frame}
 
 \begin{frame}
-      \includegraphics[width=\textwidth]{Diff}
+\includegraphics{GitHubCloneRepository}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Att återställa en tidigare version}
-Om (när) man inser att man behöver återgå till en tidigare version kan man hämta denna med
-\begin{dialogue}
-prompt> #textbf(git checkout #textit(commitnr) #textit(filnamn))
-\end{dialogue}  
+\includegraphics{GitHubAddFiles}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{columns}
-\begin{column}{0.5\textwidth}
-Välj en fil i loggen, högerklicka \menu{Show Changes}.
-
-\vspace{\baselineskip}
-
-\includegraphics[width=\textwidth]{UpdatedLog}
-\end{column}
-\begin{column}{0.5\textwidth}
-\menu{Take Left}/\menu{Take Right}
-
-\vspace{\baselineskip}
-
-\includegraphics[width=\textwidth]{FileCompare}
-\end{column}
-\end{columns}
+\includegraphics{GitHubWebInterface}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Att hämta från ett centralt arkiv}
-\begin{columns}[t]
-\begin{column}{0.5\textwidth}
-Att ha ett centralt arkiv förutsätter tillgång till den aktuella servern (mattis, alias 193.11.44.151).  I det här fallet är Kai-Mikael administratören, be honom skapa de arkiv ni behöver.
-
-\vspace{4\baselineskip}
-
-Detta arkiv kan sedan laddas ner med 
-\begin{dialogue}
-prompt> #textbf(git clone git@193.11.44.151:#textsl(arkivnamn).git)
-\end{dialogue}
-Vi får då en kopia av hela det angivna arkivet.
-\end{column}
-\begin{column}{0.5\textwidth}
-\menu{Repository > Clone\dots}
-
-\vspace{\baselineskip}
-
-\includegraphics[width=\textwidth]{Clone}
-\end{column}
-\end{columns}
+\includegraphics{GitHubCommitChanges}
 \end{frame}
 
 \begin{frame}[fragile]
-\begin{columns}
-\begin{column}{0.5\textwidth}
-Om man redan har ett ett projekt utan versionkontroll kan man ladda ner ett tomt arkiv och sedan kopiera över dess \directory{.git}-katalog till den katalog man vill använda (eller vice versa), addera filerna i den och göra commit.  För därefter över filerna till centralarkivet med
-\begin{dialogue}
-prompt> #textbf(git push origin master)
-\end{dialogue}
-\end{column}
-\begin{column}{0.5\textwidth}
-\menu{Commit}
 
-\vspace{\baselineskip}
-
-\includegraphics[width=\textwidth]{CommitAndPush}
-\end{column}
-\end{columns}
 \end{frame}
 
 \begin{frame}[fragile]
