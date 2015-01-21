@@ -4,6 +4,10 @@
 \usepackage{fancyvrb}
 \usepackage[lighttt]{lmodern}
 \usepackage{menukeys}
+\usepackage{calc}
+
+\usepackage{graphicx}
+
 \lstset{language=bash}
 
 \makeatletter
@@ -39,6 +43,16 @@
      \expandafter{\@xspace@exceptions@tlp}}% 
    \endgroup 
 } 
+
+\setkeys{Gin}{width= 
+  \ifdim\Gin@nat@width>0.95\linewidth 0.95\linewidth \else 
+\Gin@nat@width\fi} 
+\setkeys{Gin}{height= 
+  \ifdim\Gin@nat@height>0.95\textheight 0.95\textheight \else 
+\Gin@nat@height\fi} 
+\setkeys{Gin}{keepaspectratio=true} 
+
+
 \makeatother
 
 %\newenvironment{dialogue}{%
@@ -62,8 +76,9 @@
 \titlepage
 \end{frame}
 
+\section{Introduktion}
 \begin{frame}
-  \frametitle{Versionskontroll}
+  \frametitle{Problemet}
 Mjukvaruutveckling är inte en linjär process från en tom fil till \(n\) rader korrekt fungerande kod.
 \begin{itemize}
 \item Fel införs under arbetets gång.
@@ -77,30 +92,24 @@ Därför måste vi:
 \item arbeta med en av flera möjliga versioner.
 \end{itemize}
 
-En lösning på detta problem är \emph{versionskontroll}.
 \end{frame}
 
 \begin{frame}
+\frametitle{Versionskontroll} 
   \begin{itemize}
-  \item Ett arkiv
+  \item Ett arkiv.
   \item\emph{Incheckning} av kod (\emph{revisioner}) i arkivet.
-\note[item]{Incheckningen ska också ha kommentar om vad som ändrats sen sist.}
-  \item  Trädstruktur för parallella versioner 
-  \item Hämta ut tidigare incheckningar
+  \item Hämta ut tidigare incheckningar.
+  \item  Trädstruktur för parallella
+    versioner. (``tip''/``trunk''/``master'' är huvudspåret.)
+  \item Ändringar i parallella versioner kan föras tillbaka till master.
+  \item Varje revision har en identitet, kan markeras med en \emph{tag} som 
+motsvarar släppt version eller annan milsten. 
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-\includegraphics[height=0.8\textheight]{revision-tree}
-\end{frame}
-
-\begin{frame}
-``tip''/``trunk''/``master'' är huvudspåret.
-
-Varje revision har en identitet, kan markeras med en \emph{tag} som 
-motsvarar släppt version eller annan milsten.
-
-Ändringar i parallella versioner kan föras tillbaka till master.
+\includegraphics{revision-tree}
 \end{frame}
 
 \begin{frame}
@@ -116,50 +125,7 @@ Flera utvecklare i samma projekt.
 \end{enumerate}
 \end{frame}
 
-\begin{frame}[fragile]
-  \frametitle{Konflikthantering}
-Antag att två kodare checkar in varsin version av metoden \lstinline+func1+:
-\begin{tabular}{ll}
-Kodare 1&Kodare 2\\
-\begin{minipage}[t]{0.45\linewidth}
-\begin{lstlisting}[basicstyle=\tiny]
-public int func1(int par) {
-  int var1 = 0;  // Ursprunglig rad
-  var1 = par;   // Ny rad
-  return(var1);
-}
-\end{lstlisting}
-\end{minipage}
-&
-\begin{minipage}[t]{0.45\linewidth}
-\begin{lstlisting}[basicstyle=\tiny]
-public int func1(int par) {
-  return(par);
-}
-\end{lstlisting}
-\end{minipage}
-\end{tabular}
-\end{frame}
-
-\begin{frame}[fragile]
-Raden \lstinline+var1 = par;+ läggs till.
-\lstinline+int var1 = 0;+ tas
-bort.  
-
-\lstinline+return+-satsen skiljer sig mellan de två incheckningarna, en \emph{konflikt}.  Denna måste lösas manuellt.
-
-\end{frame}
-
-\begin{frame}[fragile]
-Versionshanteringssystemet förstår bara koden som en sträng text.
-Överlappande ändringar i samma kod flaggas, men om någon skulle ändra
-funktionshuvudet till \lstinline+public void func1(int par1, int
-par2)+ invalideras alla anrop till \lstinline+func1+, men
-versionshanteringssystemet ser inte detta.
-
-Därför bör alla incheckningar följas av ett \emph{bygge}.
-\end{frame}
-
+\section{Git}
 \begin{frame}
 \frametitle{Git}
 Det finns ett stort antal versionshanteringssystem, här kommer vi att gå igenom git.
@@ -174,13 +140,13 @@ Dock är man inte beroende av det centrala arkivet utan kan arbeta offline med s
   \frametitle{Att använda git}
 Grunden för git är ett kommndoradsgränssnitt, men det finns flera olika grafiska gränssnitt.
 
-GitHub (\url{https://github.com/}) gör tillgängligt både ett webbgränssnitt till git och gratis server-utrymme för open source-projekt.
+GitHub (\url{https://github.com/}) gör tillgängligt både ett grafiskt gränssnitt till git och gratis server-utrymme för open source-projekt.
 
 \end{frame}
 
-
+\section{Att skaffa Git}
 \begin{frame}
-\frametitle{Att skapa ett arkiv}
+\frametitle{}
 \includegraphics{GitHubSignUp}
 \end{frame}
 
@@ -236,31 +202,31 @@ GitHub (\url{https://github.com/}) gör tillgängligt både ett webbgränssnitt 
 
 \begin{frame}[fragile]
 \frametitle{Distribuerad användning}
+\includegraphics{GitHubAddCollaborators}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\includegraphics{GitHubConflict}
+\end{frame}
+
+\begin{frame}
+\includegraphics{EmacsConflict}
+\end{frame}
+
+
+\begin{frame}
+\includegraphics{EmacsConflictResolved}
 \end{frame}
 
 \begin{frame}[fragile]
+Versionshanteringssystemet förstår bara koden som en sträng text.
+Överlappande ändringar i samma kod flaggas, men om någon skulle ändra
+funktionshuvudet till \lstinline+public void func1(int par1, int par2)+ invalideras alla anrop till \lstinline+func1+, men
+versionshanteringssystemet ser inte detta.
 
+Därför bör alla incheckningar följas av ett \emph{bygge}.
 \end{frame}
-
-% \begin{frame}
-% \frametitle{Att döpa ett \emph{remote repository}}
-% git remote add
-% \end{frame}
-
-
-% \begin{frame}
-% \frametitle{Att lagra på ett  \emph{remote repository}}
-% git push  
-% \end{frame}
-
-% \begin{frame}
-% \frametitle{\emph{Tags} och \emph{branches}}
-% git tag  
-% git push <tagname>
-
-% git branch <branchname>
-% git checkout <branchname>
-% \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Att ha en privat utvecklingsgren}
@@ -270,72 +236,15 @@ git-arkiven är uppbyggda så att de låter oss arbeta på vilken punkt i träde
 \end{frame}
 
 \begin{frame}[fragile]
-  \begin{columns}
-    \begin{column}{0.5\textwidth}
-      Vi skapar en branch med 
-      \begin{dialogue}
-prompt> #textbf(git branch #textit(branchnamn))
-      \end{dialogue}
-och säger att vi vill arbeta med en specific branch
-\begin{dialogue}
-prompt> #textbf(git checkout #textit(branchnamn))  
-\end{dialogue}
-Vi hamnar då i ''spetsen'' av den aktuella grenen.
-    \end{column}
-    \begin{column}{0.5\textwidth}
-\menu{Add Branch}
-
-\vspace{\baselineskip}
-
-\includegraphics[width=\textwidth]{BranchAndCheckout}
-    \end{column}
-  \end{columns}
-  
-\end{frame}
-
-\begin{frame}[fragile]
 \frametitle{\emph{Merge}}
-\begin{columns}
-\begin{column}{0.5\textwidth}
+
 När man har en utvecklingsversion man är nöjd med är det dags att koppla ihop den med mastern.  
-\begin{dialogue}
-prompt> #textbf(git checkout master)
-prompt> #textbf(git merge otherbranch)
-\end{dialogue}
 
-git kommer nu att försöka kombinera filerna från bägge grenarna.
-\end{column}
-\begin{column}{0.5\textwidth}
-\menu{Merge}
-
-\vspace{\baselineskip}
-
-\includegraphics[width=\textwidth]{Merge}
-
-\end{column}
-\end{columns}
 \end{frame}
 
-\begin{frame}[fragile]
-    Det kan vara så att det finns konflikter (överlappande ändringar) i koden, så att man måste gå igenom manuellt och välja vilket av de möjliga alternativen som ska användas.  Då kan man ta hjälp av 
-\begin{dialogue}
-prompt> #textbf(git mergetool)
-\end{dialogue}
-(kan kräva installation av lämplig mjukvara).
-
-Om man inser att man gjort bort sig fullständigt, kan man ångra sig:
-\begin{dialogue}
-prompt> #textbf(git merge --abort)
-\end{dialogue}
-
-Till sist, när allt är OK, så gör man en commit.
-\end{frame}
 \begin{frame}[fragile]
 \frametitle{\emph{merge} av binära filer}
-git klarar inte (idag) av att göra merge på binära filer -- \mao texturer, animationer, \odyl.  Somliga installationer kan ha en mergetool som kan hjälpa till, men i allmänhet måste man manuellt hämta de binära filer man vill ha med 
-\begin{dialogue}
-prompt> #textbf(git checkout #textit(treeish) #textit(filnamn))  
-\end{dialogue}
+git klarar inte (idag) av att göra merge på binära filer -- \mao texturer, animationer, \odyl.  Somliga installationer kan ha en mergetool som kan hjälpa till, men i allmänhet måste man manuellt hämta de binära filer man vill ha.
   
 \end{frame}
 
@@ -343,8 +252,5 @@ prompt> #textbf(git checkout #textit(treeish) #textit(filnamn))
 \begin{frame}[fragile]
 \frametitle{Mer läsning}  
 \href{http://git-scm.com/book/en/v2/}{\textsl{Pro Git, 2nd Edition}, Scott Chacon \& Ben Straub.}
-\begin{dialogue}
-prompt> #textbf(man git)
-\end{dialogue}
 \end{frame}
 \end{document}
