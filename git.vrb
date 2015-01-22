@@ -1,2 +1,8 @@
-\frametitle{Mer läsning}
-\href{http://git-scm.com/book/en/v2/}{\textsl{Pro Git, 2nd Edition}, Scott Chacon \& Ben Straub.}
+\textbf{Obs!}
+Git förstår bara filer som en sträng text.
+Konflikter förstås som ändringar på samma position av flera utvecklare, men om någon skulle ändra
+en funktion \lstinline+public void func1(int par1, int par2)+ till \lstinline+public void func1(int par1)+ invalideras alla anrop till \lstinline+func1+, men
+git varnar inte för detta.
+
+Därför bör alla incheckningar följas av ett \emph{bygge} för att
+kontrollera att allt fortfarande fungerar.

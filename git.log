@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.1.16)  21 JAN 2015 14:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.1.16)  22 JAN 2015 11:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1918,68 +1918,68 @@ LaTeX Info: Redefining \includegraphics on input line 71.
 [1
 
 {/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for OT1+lmss on input line 94.
+LaTeX Font Info:    Try loading font information for OT1+lmss on input line 95.
 
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/lm/ot1lmss.fd
 File: ot1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 94.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 95.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 94.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 95.
 
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 94.
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 95.
 
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 94.
+(Font)              <10.95> on input line 95.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 94.
+(Font)              <8> on input line 95.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 94.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 94.
+(Font)              <6> on input line 95.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 95.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 94.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 95.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 94.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 95.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 94.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 95.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10.95> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 94.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 95.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <8> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 94.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 95.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <6> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 94.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 95.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 94.
+(Font)              <5> on input line 95.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 94.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 95.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <5> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 94.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 95.
  [2
 
 ] [3
 
 ]
-<./pics/revision-tree.png, id=120, 404.51125pt x 463.7325pt>
+<./pics/revision-tree.png, id=138, 404.51125pt x 463.7325pt>
 File: ./pics/revision-tree.png Graphic file (type png)
 
 <use ./pics/revision-tree.png>
-Package pdftex.def Info: ./pics/revision-tree.png used on input line 112.
+Package pdftex.def Info: ./pics/revision-tree.png used on input line 113.
 (pdftex.def)             Requested size: 223.03738pt x 255.69049pt.
  [4
 
@@ -1988,7 +1988,7 @@ Package pdftex.def Info: ./pics/revision-tree.png used on input line 112.
 ] [6
 
 ]
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 143.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 146.
 
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/lm/t1lmtt.fd
@@ -1996,197 +1996,162 @@ File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [7
 
 ]
-<./pics/GitHubSignUp.png, id=225, 1445.4pt x 903.375pt>
+<./pics/GitHubSignUp.png, id=241, 1445.4pt x 903.375pt>
 File: ./pics/GitHubSignUp.png Graphic file (type png)
 
 <use ./pics/GitHubSignUp.png>
-Package pdftex.def Info: ./pics/GitHubSignUp.png used on input line 149.
+Package pdftex.def Info: ./pics/GitHubSignUp.png used on input line 152.
 (pdftex.def)             Requested size: 291.91997pt x 182.44998pt.
  [8
 
  <./pics/GitHubSignUp.png>]
-\openout4 = `git.vrb'.
+<./pics/GitHubChoosePlan.png, id=272, 1445.4pt x 903.375pt>
+File: ./pics/GitHubChoosePlan.png Graphic file (type png)
 
- (./git.vrb
-<./pics/ChoosePlan.png, id=254, 1445.4pt x 903.375pt>
-File: ./pics/ChoosePlan.png Graphic file (type png)
-
-<use ./pics/ChoosePlan.png>
-Package pdftex.def Info: ./pics/ChoosePlan.png used on input line 1.
+<use ./pics/GitHubChoosePlan.png>
+Package pdftex.def Info: ./pics/GitHubChoosePlan.png used on input line 157.
 (pdftex.def)             Requested size: 291.91997pt x 182.44998pt.
-) [9
+ [9
 
- <./pics/ChoosePlan.png>]
-\openout4 = `git.vrb'.
+ <./pics/GitHubChoosePlan.png>]
+<./pics/GitHubCreateRepository.png, id=299, 1445.4pt x 903.375pt>
+File: ./pics/GitHubCreateRepository.png Graphic file (type png)
 
- (./git.vrb
-<./pics/CreateRepository.png, id=281, 1445.4pt x 903.375pt>
-File: ./pics/CreateRepository.png Graphic file (type png)
-
-<use ./pics/CreateRepository.png>
-Package pdftex.def Info: ./pics/CreateRepository.png used on input line 1.
+<use ./pics/GitHubCreateRepository.png>
+Package pdftex.def Info: ./pics/GitHubCreateRepository.png used on input line 1
+63.
 (pdftex.def)             Requested size: 291.91997pt x 182.44998pt.
-) [10
+ [10
 
- <./pics/CreateRepository.png>]
-\openout4 = `git.vrb'.
+ <./pics/GitHubCreateRepository.png>] <./pics/GitHubNameRepository.png, id=326,
+ 1445.4pt x 903.375pt>
+File: ./pics/GitHubNameRepository.png Graphic file (type png)
 
-
-(./git.vrb <./pics/NameRepository.png, id=308, 1445.4pt x 903.375pt>
-File: ./pics/NameRepository.png Graphic file (type png)
-
-<use ./pics/NameRepository.png>
-Package pdftex.def Info: ./pics/NameRepository.png used on input line 1.
+<use ./pics/GitHubNameRepository.png>
+Package pdftex.def Info: ./pics/GitHubNameRepository.png used on input line 168
+.
 (pdftex.def)             Requested size: 291.91997pt x 182.44998pt.
-) [11
+ [11
 
- <./pics/NameRepository.png>]
-\openout4 = `git.vrb'.
+ <./pics/GitHubNameRepository.png>]
+<./pics/GitHubAddCollaborators.png, id=353, 1445.4pt x 903.375pt>
+File: ./pics/GitHubAddCollaborators.png Graphic file (type png)
 
- (./git.vrb
-<./pics/GitHubDownload.png, id=335, 1445.4pt x 903.375pt>
+<use ./pics/GitHubAddCollaborators.png>
+Package pdftex.def Info: ./pics/GitHubAddCollaborators.png used on input line 1
+73.
+(pdftex.def)             Requested size: 291.91997pt x 182.44998pt.
+ [12
+
+ <./pics/GitHubAddCollaborators.png>] <./pics/GitHubWebInterface.png, id=380, 1
+445.4pt x 903.375pt>
+File: ./pics/GitHubWebInterface.png Graphic file (type png)
+
+<use ./pics/GitHubWebInterface.png>
+Package pdftex.def Info: ./pics/GitHubWebInterface.png used on input line 178.
+(pdftex.def)             Requested size: 291.91997pt x 182.44998pt.
+ [13
+
+ <./pics/GitHubWebInterface.png>]
+<./pics/GitHubDownload.png, id=407, 1445.4pt x 903.375pt>
 File: ./pics/GitHubDownload.png Graphic file (type png)
 
 <use ./pics/GitHubDownload.png>
-Package pdftex.def Info: ./pics/GitHubDownload.png used on input line 1.
+Package pdftex.def Info: ./pics/GitHubDownload.png used on input line 185.
 (pdftex.def)             Requested size: 291.91997pt x 182.44998pt.
-) [12
+ [14
 
  <./pics/GitHubDownload.png>]
-\openout4 = `git.vrb'.
-
- (./git.vrb
-<./pics/GitHubWelcome.png, id=362, 1445.4pt x 903.375pt>
+<./pics/GitHubWelcome.png, id=434, 1445.4pt x 903.375pt>
 File: ./pics/GitHubWelcome.png Graphic file (type png)
 
 <use ./pics/GitHubWelcome.png>
-Package pdftex.def Info: ./pics/GitHubWelcome.png used on input line 1.
+Package pdftex.def Info: ./pics/GitHubWelcome.png used on input line 190.
 (pdftex.def)             Requested size: 291.91997pt x 182.44998pt.
-) [13
+ [15
 
  <./pics/GitHubWelcome.png>]
-\openout4 = `git.vrb'.
-
- (./git.vrb
-<./pics/GitHubLogin.png, id=391, 1445.4pt x 903.375pt>
+<./pics/GitHubLogin.png, id=461, 1445.4pt x 903.375pt>
 File: ./pics/GitHubLogin.png Graphic file (type png)
 
 <use ./pics/GitHubLogin.png>
-Package pdftex.def Info: ./pics/GitHubLogin.png used on input line 1.
+Package pdftex.def Info: ./pics/GitHubLogin.png used on input line 195.
 (pdftex.def)             Requested size: 291.91997pt x 182.44998pt.
-) [14
+ [16
 
  <./pics/GitHubLogin.png>]
-\openout4 = `git.vrb'.
-
- (./git.vrb
-<./pics/GitHubConfig.png, id=418, 1445.4pt x 903.375pt>
+<./pics/GitHubConfig.png, id=489, 1445.4pt x 903.375pt>
 File: ./pics/GitHubConfig.png Graphic file (type png)
 
 <use ./pics/GitHubConfig.png>
-Package pdftex.def Info: ./pics/GitHubConfig.png used on input line 1.
+Package pdftex.def Info: ./pics/GitHubConfig.png used on input line 199.
 (pdftex.def)             Requested size: 291.91997pt x 182.44998pt.
-) [15
+ [17
 
  <./pics/GitHubConfig.png>]
-\openout4 = `git.vrb'.
-
- (./git.vrb
-<./pics/GitHubFindLocalRepositories.png, id=445, 1445.4pt x 903.375pt>
+<./pics/GitHubFindLocalRepositories.png, id=516, 1445.4pt x 903.375pt>
 File: ./pics/GitHubFindLocalRepositories.png Graphic file (type png)
 
 <use ./pics/GitHubFindLocalRepositories.png>
 Package pdftex.def Info: ./pics/GitHubFindLocalRepositories.png used on input l
-ine 1.
+ine 204.
 (pdftex.def)             Requested size: 291.91997pt x 182.44998pt.
-) [16
+ [18
 
  <./pics/GitHubFindLocalRepositories.png>] <./pics/GitHubCloneRepository.png, i
-d=472, 1445.4pt x 903.375pt>
+d=543, 1445.4pt x 903.375pt>
 File: ./pics/GitHubCloneRepository.png Graphic file (type png)
 
 <use ./pics/GitHubCloneRepository.png>
-Package pdftex.def Info: ./pics/GitHubCloneRepository.png used on input line 18
-7.
+Package pdftex.def Info: ./pics/GitHubCloneRepository.png used on input line 20
+9.
 (pdftex.def)             Requested size: 291.91997pt x 182.44998pt.
- [17
+ [19
 
  <./pics/GitHubCloneRepository.png>]
-\openout4 = `git.vrb'.
-
-
-(./git.vrb <./pics/GitHubAddFiles.png, id=500, 1445.4pt x 903.375pt>
+<./pics/GitHubAddFiles.png, id=571, 1445.4pt x 903.375pt>
 File: ./pics/GitHubAddFiles.png Graphic file (type png)
 
 <use ./pics/GitHubAddFiles.png>
-Package pdftex.def Info: ./pics/GitHubAddFiles.png used on input line 1.
+Package pdftex.def Info: ./pics/GitHubAddFiles.png used on input line 214.
 (pdftex.def)             Requested size: 291.91997pt x 182.44998pt.
-) [18
+ [20
 
  <./pics/GitHubAddFiles.png>]
-\openout4 = `git.vrb'.
-
- (./git.vrb
-<./pics/GitHubWebInterface.png, id=527, 1445.4pt x 903.375pt>
-File: ./pics/GitHubWebInterface.png Graphic file (type png)
-
-<use ./pics/GitHubWebInterface.png>
-Package pdftex.def Info: ./pics/GitHubWebInterface.png used on input line 1.
-(pdftex.def)             Requested size: 291.91997pt x 182.44998pt.
-) [19
-
- <./pics/GitHubWebInterface.png>]
-\openout4 = `git.vrb'.
-
-
-(./git.vrb <./pics/GitHubCommitChanges.png, id=555, 1445.4pt x 903.375pt>
+<./pics/GitHubCommitChanges.png, id=599, 1445.4pt x 903.375pt>
 File: ./pics/GitHubCommitChanges.png Graphic file (type png)
 
 <use ./pics/GitHubCommitChanges.png>
-Package pdftex.def Info: ./pics/GitHubCommitChanges.png used on input line 1.
+Package pdftex.def Info: ./pics/GitHubCommitChanges.png used on input line 219.
+
 (pdftex.def)             Requested size: 291.91997pt x 182.44998pt.
-) [20
+ [21
 
  <./pics/GitHubCommitChanges.png>]
-\openout4 = `git.vrb'.
-
-
-(./git.vrb <./pics/GitHubAddCollaborators.png, id=582, 1445.4pt x 903.375pt>
-File: ./pics/GitHubAddCollaborators.png Graphic file (type png)
-
-<use ./pics/GitHubAddCollaborators.png>
-Package pdftex.def Info: ./pics/GitHubAddCollaborators.png used on input line 2
-.
-(pdftex.def)             Requested size: 291.91997pt x 182.44998pt.
-) [21
-
- <./pics/GitHubAddCollaborators.png>]
-\openout4 = `git.vrb'.
-
- (./git.vrb <./pics/GitHubConflict.png, id=610, 1445.4pt x 903.375pt>
+<./pics/GitHubConflict.png, id=626, 1445.4pt x 903.375pt>
 File: ./pics/GitHubConflict.png Graphic file (type png)
 
 <use ./pics/GitHubConflict.png>
-Package pdftex.def Info: ./pics/GitHubConflict.png used on input line 1.
+Package pdftex.def Info: ./pics/GitHubConflict.png used on input line 226.
 (pdftex.def)             Requested size: 291.91997pt x 182.44998pt.
-) [22
+ [22
 
  <./pics/GitHubConflict.png>]
-<./pics/EmacsConflict.png, id=637, 1445.4pt x 903.375pt>
+<./pics/EmacsConflict.png, id=653, 1445.4pt x 903.375pt>
 File: ./pics/EmacsConflict.png Graphic file (type png)
 
 <use ./pics/EmacsConflict.png>
-Package pdftex.def Info: ./pics/EmacsConflict.png used on input line 213.
+Package pdftex.def Info: ./pics/EmacsConflict.png used on input line 232.
 (pdftex.def)             Requested size: 291.91997pt x 182.44998pt.
  [23
 
  <./pics/EmacsConflict.png>]
-<./pics/EmacsConflictResolved.png, id=664, 1445.4pt x 903.375pt>
+<./pics/EmacsConflictResolved.png, id=680, 1445.4pt x 903.375pt>
 File: ./pics/EmacsConflictResolved.png Graphic file (type png)
 
 <use ./pics/EmacsConflictResolved.png>
-Package pdftex.def Info: ./pics/EmacsConflictResolved.png used on input line 21
-8.
+Package pdftex.def Info: ./pics/EmacsConflictResolved.png used on input line 23
+9.
 (pdftex.def)             Requested size: 291.91997pt x 182.44998pt.
  [24
 
@@ -2196,28 +2161,40 @@ Package pdftex.def Info: ./pics/EmacsConflictResolved.png used on input line 21
 
 (./git.vrb) [25
 
+] <./pics/GitHubRollback.png, id=735, 1445.4pt x 903.375pt>
+File: ./pics/GitHubRollback.png Graphic file (type png)
+
+<use ./pics/GitHubRollback.png>
+Package pdftex.def Info: ./pics/GitHubRollback.png used on input line 255.
+(pdftex.def)             Requested size: 291.91997pt x 182.44998pt.
+ [26
+
+ <./pics/GitHubRollback.png>] [27
+
 ]
-\openout4 = `git.vrb'.
+<./pics/GitHubCreateNewBranch.png, id=787, 1445.4pt x 903.375pt>
+File: ./pics/GitHubCreateNewBranch.png Graphic file (type png)
 
- (./git.vrb) [26
+<use ./pics/GitHubCreateNewBranch.png>
+Package pdftex.def Info: ./pics/GitHubCreateNewBranch.png used on input line 26
+6.
+(pdftex.def)             Requested size: 291.91997pt x 182.44998pt.
+ [28
 
-]
-\openout4 = `git.vrb'.
+ <./pics/GitHubCreateNewBranch.png>]
+<./pics/GitHubMerge.png, id=814, 1445.4pt x 903.375pt>
+File: ./pics/GitHubMerge.png Graphic file (type png)
 
- (./git.vrb)
+<use ./pics/GitHubMerge.png>
+Package pdftex.def Info: ./pics/GitHubMerge.png used on input line 273.
+(pdftex.def)             Requested size: 291.91997pt x 182.44998pt.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <14.4> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 241.
- [27
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 273.
+ [29
 
-]
-\openout4 = `git.vrb'.
+ <./pics/GitHubMerge.png>] [30
 
- (./git.vrb) [28
-
-]
-\openout4 = `git.vrb'.
-
- (./git.vrb) [29
+] [31
 
 ]
 \tf@nav=\write8
@@ -2229,34 +2206,35 @@ LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <14.4> not available
 \tf@snm=\write10
 \openout10 = `git.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 254.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 254.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 286.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 286.
  (./git.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 254.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 254.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 286.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 286.
 Package rerunfilecheck Info: File `git.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 254.
+(rerunfilecheck)             Checksum: B4A5D855EF8135F7618E1820B456A7A7;205.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 286.
  ) 
 Here is how much of TeX's memory you used:
- 33131 strings out of 493109
- 626334 string characters out of 6135004
- 732811 words of memory out of 5000000
- 35817 multiletter control sequences out of 15000+600000
- 55641 words of font info for 58 fonts, out of 8000000 for 9000
+ 33144 strings out of 493109
+ 626884 string characters out of 6135004
+ 733811 words of memory out of 5000000
+ 35852 multiletter control sequences out of 15000+600000
+ 58409 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 58i,14n,91p,10396b,1189s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 58i,14n,91p,10396b,1193s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/
 texlive/2014/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/local/texlive/20
 14/texmf-dist/fonts/type1/public/lm/lmss12.pfb></usr/local/texlive/2014/texmf-d
-ist/fonts/type1/public/lm/lmsso10.pfb></usr/local/texlive/2014/texmf-dist/fonts
-/type1/public/lm/lmsso12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/pu
-blic/lm/lmtl10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfo
-nts/symbols/msam10.pfb>
-Output written on git.pdf (29 pages, 10901918 bytes).
+ist/fonts/type1/public/lm/lmssbx10.pfb></usr/local/texlive/2014/texmf-dist/font
+s/type1/public/lm/lmsso10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/p
+ublic/lm/lmsso12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/lm/
+lmtl10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/symb
+ols/msam10.pfb>
+Output written on git.pdf (31 pages, 12222832 bytes).
 PDF statistics:
- 855 PDF objects out of 1000 (max. 8388607)
- 752 compressed objects within 8 object streams
- 59 named destinations out of 1000 (max. 500000)
- 233 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 936 PDF objects out of 1000 (max. 8388607)
+ 823 compressed objects within 9 object streams
+ 67 named destinations out of 1000 (max. 500000)
+ 280 words of extra memory for PDF output out of 10000 (max. 10000000)
 
