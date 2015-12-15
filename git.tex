@@ -138,41 +138,49 @@ Dock är man inte beroende av det centrala arkivet utan kan arbeta offline med s
 
 \begin{frame}
   \frametitle{Att använda git}
-Grunden för git är ett kommndoradsgränssnitt, men det finns flera olika grafiska gränssnitt.
+Grunden för git är ett kommandoradsgränssnitt. Det finns flera olika
+grafiska gränssnitt. (Mera avancerade övningar kräver användning av kommandotolken)
 
 GitHub (\url{https://github.com/}) gör tillgängligt både ett grafiskt gränssnitt till git och gratis server-utrymme för open source-projekt.
 
 \end{frame}
 
-\section{Att skaffa Git}
+\section{Att sätta upp Git}
 \begin{frame}
-\frametitle{}
+\frametitle{Skapa en användare}
 \includegraphics{GitHubSignUp}
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{Välj funktioner/kostnadsnivå}
 \includegraphics{ChoosePlan}
 \end{frame}
 
 
 \begin{frame}[fragile]
+\frametitle{Skapa ett arkiv}
 \includegraphics{CreateRepository}  
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{Namnge arkivet}
 \includegraphics{NameRepository}
 \end{frame}
 
+\subsection{GitHub-klienten}
 \begin{frame}[fragile]
+\frametitle{Hämta klienten}
 \includegraphics{GitHubDownload}
 
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{Installera klienten}
 \includegraphics{GitHubWelcome}
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{Logga in på arkivet}
 \includegraphics{GitHubLogin}
 \end{frame}
 
@@ -181,14 +189,17 @@ GitHub (\url{https://github.com/}) gör tillgängligt både ett grafiskt gränss
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{Hitta lokala arkiv}
 \includegraphics{GitHubFindLocalRepositories}
 \end{frame}
 
 \begin{frame}
+\frametitle{Gör en lokal arkiv-klon}
 \includegraphics{GitHubCloneRepository}
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{Lägg till filer i arkivet}
 \includegraphics{GitHubAddFiles}
 \end{frame}
 
@@ -197,6 +208,7 @@ GitHub (\url{https://github.com/}) gör tillgängligt både ett grafiskt gränss
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{Checka in uppdaterade filer}
 \includegraphics{GitHubCommitChanges}
 \end{frame}
 
@@ -205,27 +217,41 @@ GitHub (\url{https://github.com/}) gör tillgängligt både ett grafiskt gränss
 \includegraphics{GitHubAddCollaborators}
 \end{frame}
 
+\begin{frame}
+\frametitle{Konflikter}
+Om flera utvecklare ändrar på samma ställe i en fil uppstår en
+\emph{konflikt}.  Detta markeras i klienten, men måste lösas manuellt.
+\end{frame}
 
 \begin{frame}[fragile]
 \includegraphics{GitHubConflict}
 \end{frame}
 
 \begin{frame}
+Den synkroniserade filen har markörer vid konfliktpunkten.
 \includegraphics{EmacsConflict}
 \end{frame}
 
 
 \begin{frame}
+Dessa ska hanteras manuellt och filen kan sedan checkas in igen.
 \includegraphics{EmacsConflictResolved}
 \end{frame}
 
 \begin{frame}[fragile]
-Versionshanteringssystemet förstår bara koden som en sträng text.
-Överlappande ändringar i samma kod flaggas, men om någon skulle ändra
-funktionshuvudet till \lstinline+public void func1(int par1, int par2)+ invalideras alla anrop till \lstinline+func1+, men
-versionshanteringssystemet ser inte detta.
+\textbf{Obs!}
+Git förstår bara koden som en sträng text.
+Konflikter förstås som ändringar på samma position av flera utvecklare, men om någon skulle ändra
+en funktion \lstinline+public void func1(int par1, int par2)+ till \lstinline+public void func1(int par1)+ invalideras alla anrop till \lstinline+func1+, men
+git förstår inte detta.
 
-Därför bör alla incheckningar följas av ett \emph{bygge}.
+Därför bör alla incheckningar följas av ett \emph{bygge} för att
+kontrollera att allt fortfarande fungerar.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Att ångra sig}
+  
 \end{frame}
 
 \begin{frame}[fragile]
